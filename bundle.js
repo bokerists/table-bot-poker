@@ -4791,7 +4791,7 @@ exports = module.exports = {
   },
 
   isThereIsFigure: function(){
-    if(isNaN(this.myCard[0].rank) || isNaN(this.myCard[1].rank))
+    if(isNaN(this.myCard[0].rank*1) || isNaN(this.myCard[1].rank*1))
       return true;
   },
 
@@ -4812,7 +4812,7 @@ debugger;
     this.commonCards = gamestate.commonCards;
 
 
-    betValue = this.getBet(gamestate.sb);
+    this.betValue = this.getBet(gamestate.sb);
 
 
     //
@@ -4820,7 +4820,7 @@ debugger;
 
 
 
-    return bet(betValue);
+    return bet(this.betValue);
 
   }
 
@@ -4855,8 +4855,33 @@ test('timing test', function (t) {
     t.equal(player.myId, 1);
 
     t.notEqual(gamestate.players[0].cards[0].rank, gamestate.players[0].cards[1].rank);
-	
-	t.end();
+
+    t.end();
+});
+
+test('test figure', function (t) {
+
+    var gamestate = {
+        "commonCards": [],
+
+        "players": [{
+            "id": 1,
+            "name": "arca",
+            "cards": [
+                {"rank": "Q",                "type": ""},
+                {"rank": "6",                "type": ""}
+            ],
+        }],
+        "me": 1,
+        "sb": 25,
+        "callAmount": 222
+    };
+
+    player.bet(gamestate, function(){});
+
+    t.equal(player.isThereIsFigure, true);
+
+    t.end();
 });
 
 },{"./player":28,"tape":30}],30:[function(require,module,exports){

@@ -39,7 +39,7 @@ exports = module.exports = {
   },
 
   isThereIsFigure: function(){
-    if(isNaN(this.myCard[0].rank) || isNaN(this.myCard[1].rank))
+    if(isNaN(this.myCard[0].rank*1) || isNaN(this.myCard[1].rank*1))
       return true;
   },
 
