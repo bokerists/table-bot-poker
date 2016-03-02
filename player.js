@@ -45,7 +45,7 @@ exports = module.exports = {
 
   bet: function (gamestate, bet) {
     'use strict';
-
+debugger;
     // gamestate contains info about the state of the game.
     // check the documentation at https://bot-poker.herokuapp.com/wiki for further info about the data structure.
 
@@ -68,7 +68,7 @@ exports = module.exports = {
 
 
 
-    return bet(betValue);
+    return bet(this.betValue);
 
   }
 
