@@ -28,7 +28,7 @@ exports = module.exports = {
     if(this.isThereIsFigure())
       return Infinity;
 
-    return sb;
+    return sb*3;
   },
   isPair: function(){
     return (this.myCard[0].rank == this.myCard[1].rank)
