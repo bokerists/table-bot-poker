@@ -18,7 +18,7 @@ exports = module.exports = {
     }.bind(this) );
   },
 
-  getBet: function () {
+  getBet: function (sb) {
     if(this.isPair() && this.isPreFlop())
       return Infinity;
 
@@ -28,7 +28,7 @@ exports = module.exports = {
     if(this.isThereIsFigure())
       return Infinity;
 
-    return 0;
+    return sb;
   },
   isPair: function(){
     return (this.myCard[0].rank == this.myCard[1].rank)
@@ -60,7 +60,7 @@ exports = module.exports = {
     this.commonCards = gamestate.commonCards;
 
 
-    this.betValue = this.getBet();
+    this.betValue = this.getBet(gamestate.sb);
 
 
     //
